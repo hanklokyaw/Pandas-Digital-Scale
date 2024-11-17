@@ -3,7 +3,7 @@ a Python-based application designed to streamline inventory cycle counting by le
 
 Hardware Requirement
 - Raspberry Pi (Zero/Zero W/Zero 2 W/4/5)
-- Micro SD card (16GB/32GB/64GB)
+- Micro SD card (8GB and above)
 - OLED Screen (Waveshare 2.4)
 - Barcode Scanner
 - Digital Scale with (RS232/USB port)
