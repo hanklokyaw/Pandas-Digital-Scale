@@ -12,4 +12,7 @@ Hardware Requirement
 - PC or Mac to download Raspberry Pi OS
 
 ## Step 1. Setup Raspberry Pi
+You may setup using a HDMI or an headless (without monitor).
+- Please see https://www.youtube.com/watch?v=9fEnvDgxwbI&t=217s or anyother link to setup your Raspberry Pi OS.
+
 - 
