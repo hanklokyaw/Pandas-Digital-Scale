@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/waveshare
 # -*- coding:utf-8 -*-
 
 import sys
