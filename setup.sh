@@ -41,7 +41,7 @@ cat << EOF > $DESKTOP_FILE
 [Desktop Entry]
 Type=Application
 Name=Pandas Digital Scale
-Exec=xterm -e /home/$(whoami)/autostart.sh
+Exec=uxterm -e /home/$(whoami)/autostart.sh
 StartupNotify=true
 NoDisplay=false
 EOF
