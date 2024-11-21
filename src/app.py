@@ -17,6 +17,12 @@ libdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__)
 if os.path.exists(libdir):
     sys.path.append(libdir)
 
+# Get the path to the directory where the script is located
+script_dir = os.path.dirname(os.path.realpath(__file__))
+
+# Construct the path to the CSV file
+csv_file_path = os.path.join(script_dir, 'sku_weights.csv')
+
 # Waveshare OLED library and utilities for display management
 from waveshare_OLED import OLED_2in42
 from PIL import Image, ImageDraw, ImageFont
@@ -41,7 +47,7 @@ except Exception as e:
 
 # Load SKU weights from a CSV file
 try:
-    df = pd.read_csv('sku_weights.csv')  # Load SKU weights into a DataFrame
+    df = pd.read_csv(csv_file_path)  # Load SKU weights into a DataFrame
     oled_display(disp, "CSV Loaded.", "")
     print("SKU weights loaded successfully.")
 except FileNotFoundError:
