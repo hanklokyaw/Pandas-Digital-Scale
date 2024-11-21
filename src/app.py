@@ -2,8 +2,7 @@ import serial
 import time
 import pandas as pd
 
-from parse import reset_timer_if_exceeded, parse_weight, calculate_deviation, get_weight_by_sku, get_stable_weight, \
-    calculate_sku_quantity, oled_display
+from parse import get_stable_weight, calculate_sku_quantity, oled_display
 
 import logging
 import sys
@@ -39,11 +38,10 @@ except Exception as e:
 
 if __name__ == "__main__":
 
-    # oled_display(disp, "ED-CL-5-ARC-TI-16g-1.5l2.5l3l2.5l1.5-p2", "QTY: 35000")
     try:
         ser = serial.Serial(PORT, BAUDRATE, timeout=1)
         print(f"Connected to {PORT} at {BAUDRATE} baud.")
-        oled_display(disp, "Initializing...", "")
+        oled_display(disp, "Starting...", "")
 
         while True:
             print("\n\n\n")
@@ -58,7 +56,7 @@ if __name__ == "__main__":
                     oled_display(disp, sku, f"QTY: {quantity}")
                 else:
                     print("No SKU Found.")
-                    oled_display(disp, "SKU Not in database.", "")
+                    oled_display(disp, "SKU not in database.", "")
                 time.sleep(2)  # Adjust the delay as necessary for your use case
 
     except (KeyboardInterrupt, SystemExit):
