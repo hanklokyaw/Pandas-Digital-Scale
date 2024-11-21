@@ -180,3 +180,11 @@ def oled_display(disp, line1, line2):
 
     image = image.rotate(180)
     disp.ShowImage(disp.getbuffer(image))
+
+
+# Function to check sku before counting
+def check_sku(df, sku):
+    if len(df[df['SKU']==sku]) > 0:
+        return True
+    else:
+        return False

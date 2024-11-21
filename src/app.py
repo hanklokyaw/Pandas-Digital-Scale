@@ -4,7 +4,7 @@ import time  # For time-related functions
 import pandas as pd  # For working with CSV files and data manipulation
 
 # Custom modules for parsing weight data and handling OLED display
-from parse import get_stable_weight, calculate_sku_quantity, oled_display
+from parse import get_stable_weight, calculate_sku_quantity, oled_display, check_sku
 
 # Logging for error and event tracking
 import logging
@@ -73,22 +73,28 @@ if __name__ == "__main__":
             print("\n\n\n")
             oled_display(disp, "Scan the QR Code", "")
             sku = input("Enter SKU...\n")  # Input SKU from the user
-            oled_display(disp, "Counting...", "")
-            print("Counting...")
+            if check_sku(df, sku):
+                oled_display(disp, "Counting...", "")
+                print("Counting...")
 
-            # Obtain stable weight from the scale
-            weight = get_stable_weight(PORT, BAUDRATE, WEIGHT_DEVIATION_THRESHOLD, READ_DURATION)
-            if weight:
-                # Calculate quantity based on SKU and weight
-                quantity = calculate_sku_quantity(sku, df, weight)
-                if quantity:
-                    # Display SKU and calculated quantity on the OLED
-                    oled_display(disp, sku, f"QTY: {quantity}")
-                else:
-                    # Handle case where SKU is not found in the database
-                    print("No SKU Found.")
-                    oled_display(disp, "SKU not in database.", "")
-                time.sleep(2)  # Adjust delay for user interaction as needed
+                # Obtain stable weight from the scale
+                weight = get_stable_weight(PORT, BAUDRATE, WEIGHT_DEVIATION_THRESHOLD, READ_DURATION)
+                if weight:
+                    # Calculate quantity based on SKU and weight
+                    quantity = calculate_sku_quantity(sku, df, weight)
+                    if quantity:
+                        # Display SKU and calculated quantity on the OLED
+                        oled_display(disp, sku, f"QTY: {quantity}")
+                    else:
+                        # Handle case where SKU is not found in the database
+                        print("No SKU Found.")
+                        oled_display(disp, "SKU not in  database.", "")
+                        time.sleep(3)
+                    time.sleep(3)  # Adjust delay for user interaction as needed
+            else:
+                print("No SKU Found.")
+                oled_display(disp, "SKU not in  database.", "")
+                time.sleep(3)
     except serial.SerialException as e:
         # Handle errors related to serial port communication
         oled_display(disp, "Unable to connect to USB port.", "")
