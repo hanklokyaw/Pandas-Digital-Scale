@@ -3,11 +3,11 @@
 # Step 1: Install required dependencies
 echo "Installing necessary dependencies..."
 sudo apt-get update
-sudo apt-get install python3-pip
-sudo apt-get install python3-pil
-sudo apt-get install python3-numpy
-sudo apt-get install python3-pandas
-sudo apt-get install python3-smbus
+sudo apt-get install python3-pip -y
+sudo apt-get install python3-pil -y
+sudo apt-get install python3-numpy -y
+sudo apt-get install python3-pandas -y
+sudo apt-get install python3-smbus -y
 sudo apt-get install -y xterm python3-pip
 
 # Step 2: Set up the autostart script
@@ -25,15 +25,6 @@ cat << EOF > $AUTOSTART_SH
 # Get the current username
 USERNAME=$(whoami)
 
-# Find the USB device dynamically
-DEVICE=\$(ls /dev/ttyUSB* 2>/dev/null | head -n 1)
-
-# Check if the device was found
-if [ -z "\$DEVICE" ]; then
-  echo "No USB device found!"
-  exit 1
-fi
-
 # Construct the path dynamically
 APP_PATH="/home/\$USERNAME/Pandas-Digital-Scale/src/app.py"
 
@@ -45,11 +36,11 @@ EOF
 chmod +x $AUTOSTART_SH
 
 # Step 4: Create the autostart desktop entry
-DESKTOP_FILE="$AUTOSTART_DIR/anatometal-app.desktop"
+DESKTOP_FILE="$AUTOSTART_DIR/pandas-digital-scale.desktop"
 cat << EOF > $DESKTOP_FILE
 [Desktop Entry]
 Type=Application
-Name=Anatometal
+Name=Pandas Digital Scale
 Exec=xterm -e /home/$(whoami)/autostart.sh
 StartupNotify=true
 NoDisplay=false
