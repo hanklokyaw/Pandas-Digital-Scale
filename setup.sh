@@ -1,6 +1,3 @@
-
-
-
 #!/bin/bash
 
 # Step 1: Install required dependencies
