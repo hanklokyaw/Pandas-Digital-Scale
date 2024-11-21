@@ -41,10 +41,14 @@ cat << EOF > $DESKTOP_FILE
 [Desktop Entry]
 Type=Application
 Name=Pandas Digital Scale
-Exec=tmux new-session -d -s startup "/home/$(whoami)/autostart.sh"; tmux attach-session -t startup
+Exec=/bin/bash -c 'tmux new-session -d -s startup "/home/$(whoami)/autostart.sh"; tmux attach-session -t startup'
+
 StartupNotify=true
 NoDisplay=false
 EOF
+
+chmod +x /home/$(whoami)/autostart.sh
+chmod +x /home/$(whoami)/.config/autostart/pandas-digital-scale.desktop
 
 # Step 5: Notify the user
 echo "Autostart setup complete. The app will run on startup."
