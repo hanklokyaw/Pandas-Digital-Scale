@@ -18,5 +18,15 @@ You may setup using a HDMI or an headless (without monitor).
 ## Step 2. Download the Pandas Digital Scale and install dependencies using setup.sh
 ```
 sudo apt-get install git
-git clone 
+git clone https://github.com/hanklokyaw/Pandas-Digital-Scale.git
+cd Pandas-Digital-Scale
+sudo chmod +x setup.sh
+./setup.sh
 ```
+
+## Step 3. Reboot the machine to use the app
+```
+sudo reboot
+```
+
+Please feel free to contact me at hank.lo.kyaw@gmail.com if you face any issues with the app.
