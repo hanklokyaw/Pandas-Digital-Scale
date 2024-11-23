@@ -8,7 +8,7 @@ sudo apt-get install python3-pil -y
 sudo apt-get install python3-numpy -y
 sudo apt-get install python3-pandas -y
 sudo apt-get install python3-smbus -y
-sudo apt-get install -y tmux python3-pip
+sudo apt-get install -y uxterm
 
 # Step 2: Set up the autostart script
 echo "Setting up autostart..."
@@ -41,7 +41,7 @@ cat << EOF > $DESKTOP_FILE
 [Desktop Entry]
 Type=Application
 Name=Pandas Digital Scale
-Exec=/bin/bash -c 'tmux new-session -d -s startup "/home/$(whoami)/autostart.sh"; tmux attach-session -t startup'
+Exec=uxterm -e /home/$(whoami)/autostart.sh
 
 StartupNotify=true
 NoDisplay=false
@@ -52,6 +52,6 @@ chmod +x /home/$(whoami)/.config/autostart/pandas-digital-scale.desktop
 
 # Step 5: Notify the user
 echo "Autostart setup complete. The app will run on startup."
-echo "To test immediately, run 'xterm -e /home/$(whoami)/autostart.sh'."
+echo "To test immediately, run 'uxterm -e /home/$(whoami)/autostart.sh'."
 
 echo "Setup complete!"
