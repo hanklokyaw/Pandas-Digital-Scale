@@ -15,7 +15,8 @@ Hardware Requirement
 You may setup using a HDMI or an headless (without monitor).
 - Please see https://www.youtube.com/watch?v=9fEnvDgxwbI&t=217s or anyother link to setup your Raspberry Pi OS.
 
-## Step 2. Download the setup.sh to install dependencies
+## Step 2. Download the Pandas Digital Scale and install dependencies using setup.sh
 ```
 sudo apt-get install git
+git clone 
 ```
