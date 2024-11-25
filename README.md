@@ -29,4 +29,5 @@ sudo chmod +x setup.sh
 sudo reboot
 ```
 
+For detail guide please visit https://www.linkedin.com/pulse/pandas-digital-scale-htet-aung-kyaw-fmlvc
 Please feel free to contact me at hank.lo.kyaw@gmail.com if you face any issues with the app.
